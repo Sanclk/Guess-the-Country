@@ -1,0 +1,112 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt"
+    android:viewportWidth="90"
+    android:viewportHeight="60"
+    android:width="90dp"
+    android:height="60dp">
+    <path
+        android:pathData="M90 0H0V60z"
+        android:fillColor="#003580" />
+    <path
+        android:pathData="M0 60H90V0z"
+        android:fillColor="#009543" />
+    <path
+        android:pathData="M0 60L90 0"
+        android:fillColor="#000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="20" />
+    <path
+        android:pathData="M0 60L90 0"
+        android:fillColor="#000000"
+        android:strokeColor="#D21034"
+        android:strokeWidth="15" />
+    <group
+        android:translateX="18"
+        android:translateY="16.34148">
+        <path
+            android:pathData="M0 10L1.552914 5.795555H-1.552914z"
+            android:fillColor="#FFCE00" />
+        <group
+            android:rotation="90">
+            <path
+                android:pathData="M0 10L1.552914 5.795555H-1.552914z"
+                android:fillColor="#FFCE00" />
+        </group>
+        <group
+            android:rotation="-0.000000000000007016709"
+            android:scaleX="-1"
+            android:scaleY="-1">
+            <path
+                android:pathData="M0 10L1.552914 5.795555H-1.552914z"
+                android:fillColor="#FFCE00" />
+        </group>
+        <group
+            android:rotation="90"
+            android:scaleX="-1"
+            android:scaleY="-1">
+            <path
+                android:pathData="M0 10L1.552914 5.795555H-1.552914z"
+                android:fillColor="#FFCE00" />
+        </group>
+        <group
+            android:rotation="30">
+            <path
+                android:pathData="M0 10L1.552914 5.795555H-1.552914z"
+                android:fillColor="#FFCE00" />
+            <group
+                android:rotation="90">
+                <path
+                    android:pathData="M0 10L1.552914 5.795555H-1.552914z"
+                    android:fillColor="#FFCE00" />
+            </group>
+            <group
+                android:rotation="-0.000000000000007016709"
+                android:scaleX="-1"
+                android:scaleY="-1">
+                <path
+                    android:pathData="M0 10L1.552914 5.795555H-1.552914z"
+                    android:fillColor="#FFCE00" />
+            </group>
+            <group
+                android:rotation="90"
+                android:scaleX="-1"
+                android:scaleY="-1">
+                <path
+                    android:pathData="M0 10L1.552914 5.795555H-1.552914z"
+                    android:fillColor="#FFCE00" />
+            </group>
+        </group>
+        <group
+            android:rotation="60">
+            <path
+                android:pathData="M0 10L1.552914 5.795555H-1.552914z"
+                android:fillColor="#FFCE00" />
+            <group
+                android:rotation="90">
+                <path
+                    android:pathData="M0 10L1.552914 5.795555H-1.552914z"
+                    android:fillColor="#FFCE00" />
+            </group>
+            <group
+                android:rotation="-0.000000000000007016709"
+                android:scaleX="-1"
+                android:scaleY="-1">
+                <path
+                    android:pathData="M0 10L1.552914 5.795555H-1.552914z"
+                    android:fillColor="#FFCE00" />
+            </group>
+            <group
+                android:rotation="90"
+                android:scaleX="-1"
+                android:scaleY="-1">
+                <path
+                    android:pathData="M0 10L1.552914 5.795555H-1.552914z"
+                    android:fillColor="#FFCE00" />
+            </group>
+        </group>
+        <path
+            android:pathData="M5.5 0A5.5 5.5 0 0 1 -5.5 0A5.5 5.5 0 0 1 5.5 0Z"
+            android:fillColor="#FFCE00"
+            android:strokeColor="#003580"
+            android:strokeWidth="1" />
+    </group>
+</vector>

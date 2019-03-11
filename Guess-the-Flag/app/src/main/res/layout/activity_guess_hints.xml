@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".GuessHints">
+
+    <TextView
+        android:id="@+id/tvCountDown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:textSize="20sp"
+        android:text="@string/txt_timer"
+        android:textColor="@color/red"
+        android:layout_gravity="start"/>
+
+    <ImageView
+        android:id="@+id/ivCountryImage"
+        android:layout_width="250dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lk"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_Guess_Country"
+            android:textSize="17sp"
+            android:layout_gravity="center_horizontal"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivCountryImage"
+        android:layout_marginTop="@dimen/common_padding_1"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical">
+
+        <fragment
+            android:id="@+id/fragment_slots"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:name="com.sanduni.dressme.guesstheflag.fragment.AnswerSlotFragment"
+            tools:layout="@layout/fragment_answer_slot"/>
+
+        <TextView
+            android:id="@+id/tvCorrectAns"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/txt_correct_answer"
+            android:textColor="@color/blue"
+            android:visibility="invisible"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/txt_ans_status"
+        android:textColor="@color/green"
+        android:visibility="invisible"/>
+
+    <fragment
+        android:id="@+id/fragment_keyboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:name="com.sanduni.dressme.guesstheflag.fragment.KeyboardFragment"
+        tools:layout="@layout/fragment_keyboard"/>
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/btn_txt_submit"/>
+
+</LinearLayout>
