@@ -32,7 +32,8 @@ public class GuessTheCountry extends AppCompatActivity {
         spnCountries = findViewById(R.id.spnCountries);
         btnSubmit = findViewById(R.id.btnSubmit);
 
-        if(helper.timeStatus){
+        if(Helper.isCounterActivated){
+            tvCountDown.setVisibility(View.VISIBLE);
             helper.countTime(tvCountDown, btnSubmit);
         }
 

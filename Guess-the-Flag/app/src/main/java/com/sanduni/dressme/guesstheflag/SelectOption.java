@@ -11,24 +11,23 @@ import android.widget.Switch;
 public class SelectOption extends AppCompatActivity {
 
     Switch switch_timer;
-    private boolean timeRunning;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_option);
 
-        switch_timer=(Switch)findViewById(R.id.switch_timer);
+        switch_timer=findViewById(R.id.switch_timer);
         switch_timer.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked) {
                     switch_timer.setText("Timer On");  //Changing the Timer on/off text
-                    timeRunning = true;
+                     Helper.isCounterActivated = true;
                 }
                 else {
                     switch_timer.setText("Timer Off");  //Changing the Timer on/off text
-                    timeRunning = false;
+                    Helper.isCounterActivated = false;
                 }
             }
         });

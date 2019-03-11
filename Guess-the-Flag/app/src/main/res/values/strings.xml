@@ -20,6 +20,8 @@
     <string name="txt_Guess_Country">Guess Country</string>
     <string name="txt_country_answer" />
     <string name="txt_score" />
+    <string name="txt_pick_flag">Pick the Flag of the Country</string>
+    <string name="txt_instructions">Pick the Flag of the Country</string>
 
     <string-array name="countries">
         <item>Andorra</item>

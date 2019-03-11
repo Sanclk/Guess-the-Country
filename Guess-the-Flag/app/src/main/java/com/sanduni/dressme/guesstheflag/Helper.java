@@ -8,7 +8,7 @@ import android.widget.TextView;
 public class Helper extends AppCompatActivity {
 
 
-    public boolean timeStatus;
+    public static boolean isCounterActivated;
 
     public void countTime(final TextView tv, final Button btn) {
 
