@@ -4,41 +4,27 @@ import android.graphics.drawable.Drawable;
 
 public class Flag {
 
-    private String countryCode;
     private String countryName;
-    private Drawable imageDrawable;
+    private int image;
 
-    public Flag(){
-
-    }
-
-    public Flag(String countryCode, String countryName, Drawable imageDrawable) {
-        this.countryCode = countryCode;
+    public Flag(String countryName, int image) {
         this.countryName = countryName;
-        this.imageDrawable = imageDrawable;
-    }
-
-    public String getCountryCode() {
-        return countryCode;
+        this.image = image;
     }
 
     public String getCountryName() {
         return countryName;
     }
 
-    public Drawable getImageDrawable() {
-        return imageDrawable;
-    }
-
-    public void setCountryCode(String countryCode) {
-        this.countryCode = countryCode;
+    public int getImage() {
+        return image;
     }
 
     public void setCountryName(String countryName) {
         this.countryName = countryName;
     }
 
-    public void setImageDrawable(Drawable imageDrawable) {
-        this.imageDrawable = imageDrawable;
+    public void setImage(int image) {
+        this.image = image;
     }
 }

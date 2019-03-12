@@ -3,12 +3,13 @@ package com.sanduni.dressme.guesstheflag;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 
-public class SelectOption extends AppCompatActivity {
+import com.sanduni.dressme.guesstheflag.util.Helper;
+
+public class ActivitySelectOption extends AppCompatActivity {
 
     Switch switch_timer;
 
@@ -34,22 +35,22 @@ public class SelectOption extends AppCompatActivity {
     }
 
     public void loadGuessTheCountry(View view) {
-        Intent intent = new Intent(SelectOption.this, GuessTheCountry.class);
+        Intent intent = new Intent(ActivitySelectOption.this, ActivityGuessTheCountry.class);
         startActivity(intent);
     }
 
     public void loadGuessHints(View view){
-        Intent intent = new Intent(SelectOption.this,GuessHints.class);
+        Intent intent = new Intent(ActivitySelectOption.this, ActivityGuessHints.class);
         startActivity(intent);
     }
 
     public void loadGuessTheFlag(View view) {
-        Intent intent = new Intent(SelectOption.this, GuessTheFlag.class);
+        Intent intent = new Intent(ActivitySelectOption.this, ActivityGuessTheFlag.class);
         startActivity(intent);
     }
 
-    public void advancedLevel(View view){
-        Intent intent = new Intent(SelectOption.this,AdvancedLevel.class);
+    public void loadAdvancedLevel(View view) {
+        Intent intent = new Intent(ActivitySelectOption.this, ActivityAdvancedLevel.class);
         startActivity(intent);
     }
 }

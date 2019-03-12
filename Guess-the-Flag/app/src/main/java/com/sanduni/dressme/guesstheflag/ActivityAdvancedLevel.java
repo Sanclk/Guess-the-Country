@@ -3,7 +3,7 @@ package com.sanduni.dressme.guesstheflag;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class AdvancedLevel extends AppCompatActivity {
+public class ActivityAdvancedLevel extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

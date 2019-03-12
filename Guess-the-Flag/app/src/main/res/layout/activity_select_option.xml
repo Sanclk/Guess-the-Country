@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context=".SelectOption">
+    android:background="@color/colorPrimary"
+    tools:context=".ActivitySelectOption">
 
     <TextView
         android:id="@+id/tvMessage"
@@ -42,14 +43,17 @@
                 android:onClick="loadGuessTheCountry"
                 android:text="@string/btn_txt_guess_country"
                 android:layout_weight="1"
+                android:background="@color/buttonColor"
                 android:textSize="17sp" />
 
             <Button
                 android:id="@+id/btnAdvancedLevel"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:onClick="loadAdvancedLevel"
                 android:text="@string/btn_txt_advanced_level"
                 android:layout_weight="1"
+                android:background="@color/buttonColor"
                 android:textSize="17sp" />
 
         </LinearLayout>
@@ -64,8 +68,11 @@
                 android:id="@+id/btnGuessFlag"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
                 android:layout_weight="1"
+                android:onClick="loadGuessTheFlag"
                 android:text="@string/btn_txt_guess_flag"
+                android:background="@color/buttonColor"
                 android:textSize="17sp" />
 
             <Button
@@ -74,6 +81,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/btn_txt_guess_hints"
+                android:onClick="loadGuessHints"
+                android:background="@color/buttonColor"
                 android:textSize="17sp" />
 
         </LinearLayout>
@@ -89,6 +98,7 @@
         android:textSize="18sp"
         android:text="@string/timer_text"
         android:switchPadding="15dp"
+        android:background="@color/buttonColor"
         android:checked="false"/>
 
 </LinearLayout>
