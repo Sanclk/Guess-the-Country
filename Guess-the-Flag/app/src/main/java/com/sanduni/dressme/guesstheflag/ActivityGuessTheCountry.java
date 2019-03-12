@@ -5,10 +5,12 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.sanduni.dressme.guesstheflag.data.Database;
 import com.sanduni.dressme.guesstheflag.model.Flag;
@@ -25,17 +27,12 @@ public class ActivityGuessTheCountry extends AppCompatActivity {
     TextView tvMessage, tvCorrectAns, tvCountDown; //message, correct answer and countdown texts
     Spinner spnCountries; //dropdown of the country list
     Button btnSubmit;
-    String realImageName; // set value to this inside random image selecting algo
-    Helper helper;
-    List <Flag> flagList;
-    Random random;
+    String countryName; // set value to this inside random image selecting algo
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guess_the_country);
-        random = new Random();
-        helper= new Helper();
 
         ivCountryImage = findViewById(R.id.ivCountryImage);
         tvMessage = findViewById(R.id.tvMessage);
@@ -44,23 +41,22 @@ public class ActivityGuessTheCountry extends AppCompatActivity {
         spnCountries = findViewById(R.id.spnCountries);
         btnSubmit = findViewById(R.id.btnSubmit);
 
+        // Creating adapter for spinner
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, Database.answers);
+        // Drop down layout style - list view with radio button
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // attaching data adapter to spinner
+        spnCountries.setAdapter(dataAdapter);
 
-        flagList = new ArrayList<>();
-
-        //adding all flags and names to the flagList
-        for(int i = 0; i< Database.answers.length; i++){
-            flagList.add(new Flag(Database.answers[i],Database.flags[i]));
-        }
-
-        //shuffling the flags
-        Collections.shuffle(flagList);
+        Flag flag = Helper.pickRandomImage();
+        countryName = flag.getCountryName();
+        //Toast.makeText(this, countryName, Toast.LENGTH_LONG).show();
+        ivCountryImage.setBackground(getResources().getDrawable(flag.getImage()));
 
         if(Helper.isCounterActivated){
             tvCountDown.setVisibility(View.VISIBLE);
-            helper.countTime(tvCountDown, btnSubmit);
+            Helper.countTime(tvCountDown, btnSubmit);
         }
-
-        helper.pickRandomImage();
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +66,7 @@ public class ActivityGuessTheCountry extends AppCompatActivity {
 
                     String selectedCountry = spnCountries.getSelectedItem().toString();
 
-                    if (selectedCountry.equalsIgnoreCase(realImageName)) { //always ignore case
+                    if (selectedCountry.equalsIgnoreCase(countryName)) { //always ignore case
                         tvMessage.setVisibility(View.VISIBLE);
                         tvMessage.setText("Correct");
                         tvMessage.setTextColor(Color.GREEN);
@@ -80,7 +76,7 @@ public class ActivityGuessTheCountry extends AppCompatActivity {
                         tvMessage.setText("Wrong !");
                         tvMessage.setTextColor(Color.RED);
                         tvCorrectAns.setVisibility(View.VISIBLE);
-                        tvCorrectAns.setText("Correct answer : " + realImageName);
+                        tvCorrectAns.setText("Correct answer : " + countryName);
                     }
 
                     btnSubmit.setText("Next");
@@ -92,17 +88,4 @@ public class ActivityGuessTheCountry extends AppCompatActivity {
             }
         });
     }
-
-    private void newQuestion(int number){
-        //setting the image of the flag to the screen
-        ivCountryImage.setImageResource(flagList.get(number-1).getImage());
-        //TODO
-        int correctAnswer = random.nextInt()+1;
-
-    }
-
-    private Flag pickFlag(){
-        return flagList.remove(random.nextInt(flagList.size()));
-    }
-
 }

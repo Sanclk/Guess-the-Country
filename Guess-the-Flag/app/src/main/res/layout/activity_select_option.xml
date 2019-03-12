@@ -17,7 +17,8 @@
         android:layout_marginTop="100dp"
         android:layout_marginBottom="50dp"
         android:text="@string/txt_flags"
-        android:textColor="@color/red"
+        android:textColor="@color/textMessageColor"
+        android:textStyle="bold"
         android:textSize="25sp" />
 
     <LinearLayout
@@ -43,7 +44,8 @@
                 android:onClick="loadGuessTheCountry"
                 android:text="@string/btn_txt_guess_country"
                 android:layout_weight="1"
-                android:background="@color/buttonColor"
+                android:background="@drawable/button_shape"
+                android:textColor="@color/btnTextColor"
                 android:textSize="17sp" />
 
             <Button
@@ -53,7 +55,8 @@
                 android:onClick="loadAdvancedLevel"
                 android:text="@string/btn_txt_advanced_level"
                 android:layout_weight="1"
-                android:background="@color/buttonColor"
+                android:background="@drawable/button_shape"
+                android:textColor="@color/btnTextColor"
                 android:textSize="17sp" />
 
         </LinearLayout>
@@ -72,7 +75,8 @@
                 android:layout_weight="1"
                 android:onClick="loadGuessTheFlag"
                 android:text="@string/btn_txt_guess_flag"
-                android:background="@color/buttonColor"
+                android:background="@drawable/button_shape"
+                android:textColor="@color/btnTextColor"
                 android:textSize="17sp" />
 
             <Button
@@ -82,7 +86,8 @@
                 android:layout_weight="1"
                 android:text="@string/btn_txt_guess_hints"
                 android:onClick="loadGuessHints"
-                android:background="@color/buttonColor"
+                android:background="@drawable/button_shape"
+                android:textColor="@color/btnTextColor"
                 android:textSize="17sp" />
 
         </LinearLayout>
@@ -98,7 +103,7 @@
         android:textSize="18sp"
         android:text="@string/timer_text"
         android:switchPadding="15dp"
-        android:background="@color/buttonColor"
+        android:textColor="@color/textMessageColor"
         android:checked="false"/>
 
 </LinearLayout>

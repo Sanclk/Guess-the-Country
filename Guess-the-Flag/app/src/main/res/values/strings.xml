@@ -22,6 +22,7 @@
     <string name="txt_score" />
     <string name="txt_pick_flag">Pick the Flag of the Country</string>
     <string name="txt_instructions">Pick the Flag of the Country</string>
+    <string name="txt_select_correct_flag">Select correct flag :</string>
 
     <string-array name="countries">
         <item>Andorra</item>

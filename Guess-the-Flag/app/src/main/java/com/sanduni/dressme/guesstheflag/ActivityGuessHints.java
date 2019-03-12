@@ -8,9 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.sanduni.dressme.guesstheflag.model.Flag;
 import com.sanduni.dressme.guesstheflag.util.Helper;
 
 public class ActivityGuessHints extends AppCompatActivity {
@@ -18,28 +21,33 @@ public class ActivityGuessHints extends AppCompatActivity {
     LinearLayout lytHintName;
     Button btnSubmit;
     TextView tvMessage, tvCorrectAns, tvCountDown;
-    String countryName = "Sri Lanka";
+    ImageView ivCountryImage;
+    String countryName;
     int wrongSubmitCount = 0;
-    Helper helper;
+    boolean ansCorrect = false;
+    boolean ansWrong = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guess_hints);
-        helper = new Helper();
 
         tvCountDown = findViewById(R.id.tvCountDown);
         tvMessage = findViewById(R.id.tvMessage);
         tvCorrectAns = findViewById(R.id.tvCorrectAns);
         btnSubmit = findViewById(R.id.btnSubmit);
         lytHintName = findViewById(R.id.lytNameHint);
+        ivCountryImage = findViewById(R.id.ivCountryImage);
+
+        Flag flag = Helper.pickRandomImage();
+        countryName = flag.getCountryName();
+        Toast.makeText(this, countryName, Toast.LENGTH_LONG).show();
+        ivCountryImage.setBackground(getResources().getDrawable(flag.getImage()));
 
         if (Helper.isCounterActivated) {
             tvCountDown.setVisibility(View.VISIBLE);
-            helper.countTime(tvCountDown, btnSubmit);
+            Helper.countTime(tvCountDown, btnSubmit);
         }
-
-        helper.pickRandomImage();// set value for countryName attribute inside this method.
 
         generateTextDashes();
     }
@@ -90,6 +98,7 @@ public class ActivityGuessHints extends AppCompatActivity {
                 tvMessage.setText("CORRECT");
                 tvMessage.setTextColor(Color.GREEN);
                 tvMessage.setVisibility(View.VISIBLE);
+                ansCorrect = true;
 //              stop counter here
                 if (Helper.isCounterActivated) {
                     Helper.countDownTimer.cancel();
@@ -103,13 +112,13 @@ public class ActivityGuessHints extends AppCompatActivity {
                 tvMessage.setText("WRONG !");
                 tvMessage.setTextColor(Color.RED);
                 tvMessage.setVisibility(View.VISIBLE);
-
+                ansWrong = true;
                 tvCorrectAns.setText("Correct Answer is : " + removeNonWordChars(countryName));
                 tvCorrectAns.setVisibility(View.VISIBLE);
             }
-        } else {
+        } else if(btnSubmit.getText().toString().equalsIgnoreCase("Next") && (ansCorrect || ansWrong)){
             Intent intent = new Intent(this, ActivityGuessHints.class)
-                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }
     }
@@ -128,6 +137,8 @@ public class ActivityGuessHints extends AppCompatActivity {
         if(Helper.countDownTimer != null) {
             Helper.countDownTimer.cancel(); //cancel previous timer before starting new one.
         }
-        helper.countTime(tvCountDown, btnSubmit); //restart Timer
+        Helper.countTime(tvCountDown, btnSubmit); //restart Timer
     }
+
+
 }
