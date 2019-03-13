@@ -16,7 +16,7 @@
         android:layout_margin="20dp"
         android:textSize="20sp"
         android:text="@string/txt_timer"
-        android:textColor="@color/red"
+        android:textColor="@color/white"
         android:layout_gravity="start"
         android:visibility="invisible"/>
 
