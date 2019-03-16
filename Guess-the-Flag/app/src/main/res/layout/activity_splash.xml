@@ -23,6 +23,24 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.336" />
 
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:text="@string/txt_app_name_launch"
+        android:textSize="@dimen/title_font_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imgBtnPlay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgWorld"
+        app:layout_constraintVertical_bias="0.56" />
+
     <ImageButton
         android:id="@+id/imgBtnPlay"
         android:layout_width="80dp"
