@@ -1,5 +1,11 @@
 package com.sanduni.dressme.guesstheflag;
 
+/**
+ * Created by Sanduni Chamika
+ * w1673755
+ * 2017541
+ */
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
@@ -10,16 +16,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.sanduni.dressme.guesstheflag.data.Database;
 import com.sanduni.dressme.guesstheflag.model.Flag;
 import com.sanduni.dressme.guesstheflag.util.Helper;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
 
 public class ActivityGuessTheCountry extends AppCompatActivity {
 
@@ -27,7 +27,7 @@ public class ActivityGuessTheCountry extends AppCompatActivity {
     TextView tvMessage, tvCorrectAns, tvCountDown; //message, correct answer and countdown texts
     Spinner spnCountries; //dropdown of the country list
     Button btnSubmit;
-    String countryName; // set value to this inside random image selecting algo
+    String countryName; // country name of the randomly generated flag
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +41,7 @@ public class ActivityGuessTheCountry extends AppCompatActivity {
         spnCountries = findViewById(R.id.spnCountries);
         btnSubmit = findViewById(R.id.btnSubmit);
 
-        // Creating adapter for spinner
+        // Creating an adapter for spinner
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, Database.answers);
         // Drop down layout style - list view with radio button
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -58,6 +58,10 @@ public class ActivityGuessTheCountry extends AppCompatActivity {
             Helper.countTime(tvCountDown, btnSubmit);
         }
 
+        //adding the advertisement
+        new AdHandeler().loadInterstitialAd(this);
+
+
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,20 +70,20 @@ public class ActivityGuessTheCountry extends AppCompatActivity {
 
                     String selectedCountry = spnCountries.getSelectedItem().toString();
 
-                    if (selectedCountry.equalsIgnoreCase(countryName)) { //always ignore case
+                    if (selectedCountry.equalsIgnoreCase(countryName)) {
                         tvMessage.setVisibility(View.VISIBLE);
-                        tvMessage.setText("Correct");
+                        tvMessage.setText(getString(R.string.txt_correct));
                         tvMessage.setTextColor(Color.GREEN);
                         tvCorrectAns.setVisibility(View.INVISIBLE);
                     } else {
                         tvMessage.setVisibility(View.VISIBLE);
-                        tvMessage.setText("Wrong !");
+                        tvMessage.setText(getString(R.string.txt_wrong));
                         tvMessage.setTextColor(Color.RED);
                         tvCorrectAns.setVisibility(View.VISIBLE);
-                        tvCorrectAns.setText("Correct answer : " + countryName);
+                        tvCorrectAns.setText(getString(R.string.txt_correct_answer_display) + countryName);
                     }
 
-                    btnSubmit.setText("Next");
+                    btnSubmit.setText(getString(R.string.btn_txt_Next));
                 } else if(btnSubmit.getText().toString().equalsIgnoreCase("Next")){
                     Intent intent = new Intent(ActivityGuessTheCountry.this, ActivityGuessTheCountry.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);

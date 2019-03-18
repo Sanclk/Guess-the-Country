@@ -22,6 +22,7 @@ public class Helper {
         initFlagList();
     }
 
+    //
     public static void initFlagList(){
         random = new Random();
         flagList = new ArrayList<>();
@@ -30,13 +31,13 @@ public class Helper {
         }
     }
 
-    //  millisInFuture is set to 12000 & millisUntilFinished is deducted by 1 to
-//  display proper countdown from 10s to 0s.
+    // millisInFuture is set to 12000 & millisUntilFinished is deducted by 1 to
+    // display proper countdown from 10s to 0s.
     public static void countTime(final TextView tv, final Button btn) {
 
         countDownTimer = new CountDownTimer(12000, 1000) {
             public void onTick(long millisUntilFinished) {
-                tv.setText("00:" + getSeconds(millisUntilFinished / 1000));
+                tv.setText(String.format("00:%s", getSeconds(millisUntilFinished / 1000)));
                 //here you can have your logic to set text to edittext
             }
 
@@ -56,9 +57,6 @@ public class Helper {
     }
 
     public static Flag pickRandomImage() {
-        // :)
-        //set value to string varible.
-        //alse setimage to imageview.
 
         return flagList.remove(random.nextInt(flagList.size()));
     }

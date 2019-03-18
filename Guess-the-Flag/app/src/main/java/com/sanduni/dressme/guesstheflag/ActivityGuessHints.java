@@ -1,5 +1,11 @@
 package com.sanduni.dressme.guesstheflag;
 
+/**
+ * Created by Sanduni Chamika
+ * w1673755
+ * 2017541
+ */
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
@@ -50,6 +56,8 @@ public class ActivityGuessHints extends AppCompatActivity {
         }
 
         generateTextDashes();
+
+        new AdHandeler().loadInterstitialAd(this);
     }
 
     private void generateTextDashes() { //generate dashes according to country name

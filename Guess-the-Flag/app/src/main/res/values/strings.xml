@@ -24,6 +24,10 @@
     <string name="txt_instructions">Pick the Flag of the Country</string>
     <string name="txt_select_correct_flag">Select correct flag :</string>
     <string name="txt_app_name_launch">Flags Quiz</string>
+    <string name="txt_correct">Correct</string>
+    <string name="txt_wrong">Wrong !</string>
+    <string name="txt_correct_answer_display">Correct answer :</string>
+    <string name="btn_txt_Next">Next</string>
 
     <string-array name="countries">
         <item>Andorra</item>
@@ -284,4 +288,15 @@
         <item>Zimbabwe</item>
 
     </string-array>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="interstitial_ad_sample">Interstitial Ad Sample</string>
+    <string name="start_level">Level 1</string>
+    <string name="next_level">Next Level</string>
+    <!-- -
+        This is an ad unit ID for an interstitial test ad. Replace with your own interstitial ad unit id.
+        For more information, see https://support.google.com/admob/answer/3052638
+    <!- -->
+    <string name="interstitial_ad_unit_id">ca-app-pub-3940256099942544/1033173712</string>
 </resources>

@@ -1,5 +1,13 @@
 package com.sanduni.dressme.guesstheflag;
 
+import android.app.Activity;
+
+/**
+ * Created by Sanduni Chamika
+ * w1673755
+ * 2017541
+ * on 3/18/19
+ */
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,7 +32,7 @@ public class ActivitySelectOption extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked) {
                     switch_timer.setText("Timer On");  //Changing the Timer on/off text
-                     Helper.isCounterActivated = true;
+                    Helper.isCounterActivated = true;
                 }
                 else {
                     switch_timer.setText("Timer Off");  //Changing the Timer on/off text
